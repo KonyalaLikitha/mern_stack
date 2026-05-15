@@ -1,18 +1,24 @@
 import{useState,useEffect}from"react";
 import Service from '../../utils/http';
 import { Avatar, Container, Stack, Text } from '@mantine/core';
+
 export const ProfilePage = () => {
     const service = new Service();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    
+    if (loading) {
+       return <div>
+        Loading...
+        </div>
+    }
     const fetchUser = async () => {
       try{
         const response = await service.get('user/me');
         setUser(response);
        
       }catch(error){
-        console.log("usser not found", error);
+        console.log("user not found", error);
       
       } 
       finally {
@@ -26,11 +32,7 @@ export const ProfilePage = () => {
             console.log(user);
         }, []
     );
-    if (loading) {
-       return <div>
-        Loading...
-        </div>
-    }
+    
     if (!user) {
        return <div>User not found</div>;    
     }

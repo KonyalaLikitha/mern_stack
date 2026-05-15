@@ -12,6 +12,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconLogin } from '@tabler/icons-react';
 import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+
 import {
   getIsLoggedIn,
   removeUser,
@@ -21,6 +22,8 @@ import classes from './HeaderMegaMenu.module.css';
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/profile', label: 'Profile' },
+  { to: '/urlshortner', label: 'Urlshortner' },
+  { to: '/Historypage', label: 'Historypage' },
 ];
 
 export function HeaderMegaMenu() {
